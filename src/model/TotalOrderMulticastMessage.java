@@ -1,5 +1,7 @@
 package model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.Serializable;
 import net.sf.json.JSONObject;
 
@@ -92,8 +94,9 @@ public class TotalOrderMulticastMessage implements IMessage, Serializable, Compa
         */        
                 
                 
-                
-        JSONObject stringa = new JSONObject();
+                Gson g = new GsonBuilder().create();
+                return g.toJson(this, this.getClass());
+        /*JSONObject stringa = new JSONObject();
         stringa.put("mid", messageId) ;
         stringa.put("tos", totalOrderSequence) ;
         stringa.put("message type", messageType) ;  
@@ -101,7 +104,7 @@ public class TotalOrderMulticastMessage implements IMessage, Serializable, Compa
         stringa.put("source", source) ;
         stringa.put("sequence", sequence) ;  
         stringa.put("content", content) ; 
-        return stringa.toString();
+        return stringa.toString();*/
 /*
         JsonObjectBuilder job = (JsonObjectBuilder) Json.createObjectBuilder();
         JsonObject jo;
